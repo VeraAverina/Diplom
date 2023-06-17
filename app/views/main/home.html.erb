@@ -1,0 +1,43 @@
+<head>
+<meta charset="UTF-8">
+  <link rel="stylesheet" href="stylesheets/main.scss">
+  <title>Шапка для сайта</title>
+</head>
+<body>
+
+<div id="block-body">
+
+  <header>
+
+    <div class="logo">
+      <a href="#">
+        <span class="use">WEB</span>-<span class="web">QUEST</span>
+      </a>
+
+    </div>
+
+    <div class="top-menu">
+      <ul>
+        <li><a class="clickMenu" href="main#index">Главная</a></li>
+        <li><%= link_to 'Роли', roles_path %></li>
+        <li><%= link_to 'Задания', webtests_path %></li>
+        <li><a href="#">Личный кабинет</a></li>
+      </ul>
+    </div>
+
+    <div class="block-top-auth">
+      <p><a href="#">Вход</a></p>
+      <p><a href="#">Регистрация</a></p>
+    </div>
+
+  </header>
+
+  <div id="block-content"></div>
+
+</div>
+
+<h1>Ты должен пройти веб-квест!</h1>
+
+</body>
+</html>
+

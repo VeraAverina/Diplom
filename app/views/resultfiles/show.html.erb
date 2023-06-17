@@ -1,0 +1,24 @@
+<div id="block-content">
+<table class = "table table-bordered table-striped">
+    <thead>.
+    <tr>
+      <th>Name</th>
+      <th>Download Link</th>
+      <th>Mark</th>
+      <th>Comment</th>
+      <th> </th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+        <td><%= @resultfile.name %></td>
+        <td><%= link_to "Download file", @resultfile.namefile_url %></td>
+        <td><%= @resultfile.mark %></td>
+        <td><%= @resultfile.comment %></td>
+      </tr>
+    </tbody>
+
+  </table>
+  <%= link_to "Назад", root_path, class: "bot1"%>
+</div>

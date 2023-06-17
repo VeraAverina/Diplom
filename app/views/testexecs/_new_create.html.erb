@@ -1,0 +1,29 @@
+<body>
+  <div id="block-content">
+    <%= form_for  @testexec do |form| %>
+      <%= hidden_field_tag :teacheruser_id, current_user.id %>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><%= label :user, "Студент для тестирования:" %></td>
+            <td><%= form.select :user_id, User.all.collect { |u| [ u.surname + ' (' + u.email + ')', u.id ] } %></td>
+          <tr>
+            <td><%= label :user, "Тест:" %></td>
+            <td><%= form.select :onetest_id, Onetest.all.collect { |o| [ o.title, o.id ] } %></td>
+          </tr>
+          <tr>
+            <td><%= label :timelimit, "Ограничение по времени в минутах:" %></td>
+            <td><%= form.number_field :timelimit %></td>
+          </tr>
+          <tr>
+            <td><%= label :enskipstep, "Разрешить пропускать вопрос:" %></td>
+            <td><%= form.check_box :enskipstep %></td>
+          </tr>
+        </tbody>
+      </table>  
+      <br/><br/><%= submit_tag "Создать", class: "bot1" %>
+    <% end %>
+  </div>
+</body>
+

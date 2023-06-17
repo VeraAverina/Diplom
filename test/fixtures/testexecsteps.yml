@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  testexec: one
+  datestart: 2023-06-06 12:31:58
+  datefinish: 2023-06-06 12:31:58
+  itemtest: one
+
+two:
+  testexec: two
+  datestart: 2023-06-06 12:31:58
+  datefinish: 2023-06-06 12:31:58
+  itemtest: two

@@ -1,0 +1,2 @@
+class Responsetype < ApplicationRecord
+end

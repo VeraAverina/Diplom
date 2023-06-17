@@ -1,0 +1,9 @@
+<div id="block-content">
+  <% @roless=Role.all %>
+  <% @roless.each do |r| %>
+    <h1><%= r.name %></h1>
+    <% r.refers.each do |ref| %>
+      <p><%= link_to ref.name, ref.name %></p>
+    <% end %>
+  <% end %>
+</div>

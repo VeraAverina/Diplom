@@ -1,0 +1,9 @@
+
+<div id="block-content">
+<% @webtest.roles.each do |r| %>
+      <h1><%= r.name %></h1>
+      <p><%= r.description %></p>
+      <%= link_to "Начать", webtest_role_path(@webtest,r), class: "bot1" %>
+    <% end %>
+  </div>
+

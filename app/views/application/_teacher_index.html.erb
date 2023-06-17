@@ -1,0 +1,11 @@
+<div id="block-content">
+  <h2>Преподаватель: <%= current_user.surname %></h2>
+  <div>
+    <p>Список <b>Webquest</b></p>
+    <%= render partial: 'webquest_result', locals: {resultfiles: Resultfile.all, for_teacher: true} %>
+  </div>
+  <div>
+    <p>Список <b>Тестов</b>, Назначить <%= link_to 'НОВЫЙ ТЕСТ', new_testexec_path %> </p>
+    <%= render partial: 'test_result', locals: {testexecs: current_user.tests_for_teacher, for_teacher: true} %>
+  </div>
+</div>

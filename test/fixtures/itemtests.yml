@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ordernum: 1
+  ratio: 1
+  responsetype: one
+
+two:
+  ordernum: 1
+  ratio: 1
+  responsetype: two

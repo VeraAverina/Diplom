@@ -1,0 +1,35 @@
+<table class = "table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Обучаемый</th>
+      <th>Роль</th>
+      <th>Имя файла</th>
+      <th>Скачать</th>
+      <th>Оценка</th>
+      <th>Заметки</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if resultfiles %> 
+      <% resultfiles.each do |res| %>
+        <tr>
+          <td><%= res.user.surname %></td-->
+          <% if res.role_id %>
+            <% @r = Role.find(res.role_id) %>
+            <td><%= @r.name %></td>
+          <% else %>
+            <td><%= ' ' %></td>
+          <% end %>
+          <td><%= res.name %></td>
+          <td><%= link_to "Download File", res.namefile_url %></td>
+          <td><%= res.mark %></td>
+          <td><%= res.comment %></td>
+          <% if for_teacher %>
+            <td><%= link_to "Edit", edit_resultfile_path(res) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

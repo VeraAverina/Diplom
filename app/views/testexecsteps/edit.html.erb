@@ -1,0 +1,87 @@
+<body onunload="doUnload()">
+  <div id="block-content">
+    <% logger.debug "Testexecstep.edit" %>
+    <%= form_for(@testexecstep, :html => {:id => "testexecstep_edit_id"}) do |f| %>
+      <h1><%= @testexecstep.itemtest.title %></h1>
+      <%= hidden_field_tag :testexec_id, @testexecstep.testexec_id %>
+      <%= hidden_field_tag :datestart, @testexecstep.datestart %>
+      <%= hidden_field_tag :datefinish, @testexecstep.datefinish %>
+      <%= hidden_field_tag :itemtest_id, @testexecstep.itemtest_id %>
+      <%= hidden_field_tag :countexec, @testexecstep.countexec %>
+      <%= hidden_field_tag :timelimit, @testexecstep.testexec.timelimit %>
+      <%= hidden_field_tag :timeleft, @testexecstep.testexec.timeleft %>
+
+      <% @testexecstep.itemtest.questions.each do |q| %>
+        <p><%= q.body %></p>
+      <% end %>  
+      <br/>
+      <% if @testexecstep.itemtest.responsetype.id == 1  %>
+        <% @testexecstep.itemtest.responses.each do |r| %>
+          <br/><%= radio_button_tag :response, r.id, false, {:onchange=> "let i=document.getElementById('submit_id'); i.disabled=false; i.classList.remove('disabled');"} %><%= f.label r.body %>
+        <% end %>  
+      <% end %>
+      <% if @testexecstep.itemtest.responsetype.id == 2  %>
+        <% @testexecstep.itemtest.responses.each do |r| %>
+          <br/><%= check_box_tag 'r_'+String(r.id), r.id, false, {:onchange=> "let i=document.getElementById('submit_id'); i.disabled=false; i.classList.remove('disabled');"} %><%= f.label r.body %>
+        <% end %>  
+      <% end %>
+      <% if  @testexecstep.itemtest.responsetype.id == 3  %>  
+        <br/><%= f.label @testexecstep.itemtest.response_prompt %>
+        <%= f.text_field :response, {:onkeypress=> "let i=document.getElementById('submit_id'); i.disabled=false; i.classList.remove('disabled');"} %>
+      <% end %>
+      <% if  @testexecstep.itemtest.responsetype.id == 4  %>  
+        <br/><%= f.label @testexecstep.itemtest.response_prompt %>
+        <%= f.number_field :response, {:onkeypress=> "let i=document.getElementById('submit_id'); i.disabled=false; i.classList.remove('disabled');"} %>
+      <% end %>
+      <br/><br/>
+      <% if @testexecstep.datefinish  %>
+        <h1>Этот тест вы уже прошли</h1>
+      <% else %>
+        <%= f.submit "Запомнить", class: "bot1 disabled", disabled: "true", id: "submit_id" %>
+      <% end %>
+    <% end %>
+  </div>
+</body>
+<script>
+  let timelimit = <%= @testexecstep.testexec.timelimit %>; 
+  let timeleft = <%= @testexecstep.testexec.timeleft %>;
+
+  setInterval ( "doSomething()", 5000 );
+/*  onbeforeunload = function(event) 
+  {
+    result = confirm('Прервать тест?');
+    return result;
+  }*/
+
+  function doUnload() 
+  {
+    confirm('Прервать тест?');
+  }
+
+  function doSomething()
+  {
+    let ii=document.getElementById("submit_id");
+    if(timelimit > 0)
+    {
+      timeleft -= 5;
+      if( timeleft > 0)
+      {
+        let m = Math.floor(timeleft / 60);
+        let s = timeleft % 60;
+        ii.value = "Запомнить, осталось - " + m.toString() + ":" + s.toString();
+      }
+      else
+      {
+        // Прекратить тест
+        let form = document.getElementById("testexecstep_edit_id");
+        if(form != null) {
+          let ii=document.getElementById("submit_id"); 
+          ii.disabled=false;
+        
+          form.submit();
+        }
+      }
+    }
+  }
+
+</script>

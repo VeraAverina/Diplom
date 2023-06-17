@@ -1,0 +1,5 @@
+<% if !current_user || current_user.is_student %> 
+  <%= render partial:'student_index' %> 
+<% elsif current_user && current_user.is_teacher %>
+  <%= render partial:'teacher_index' %> 
+<% end %>

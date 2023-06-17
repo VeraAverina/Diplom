@@ -1,0 +1,22 @@
+<body>
+  <div id="block-content">
+    <% if current_user.is_student %>
+      <% if (@testexecs )%>
+      <% @count = 0 %>
+        <% @testexecs.each do |testexec| %>
+          <% if !testexec.is_executed %>
+            <h1> <%= testexec.onetest.title %></h1>
+            <%= link_to testexec.datestart ? "Продолжить" : "Начать", edit_testexec_path(testexec), class: "bot1"%>
+            <% @count = @count +1 %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if (@count == 0) %>
+        <h1> Вам не назначено ни одного теста ... </h1>
+        <%= link_to "Вернуться", profile_path, {:class => "bot1"} %>
+      <% end %>
+    <% elsif current_user.is_teacher %>
+      <%= render partial: 'test_result', locals: {testexecs: current_user.tests_for_teacher, for_teacher: true} %>
+    <% end %>
+  </div>
+</body>

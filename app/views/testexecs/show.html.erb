@@ -1,0 +1,42 @@
+<!-- http://localhost:3000/testexecs/2 --->
+<body>
+  <div id="block-content">
+    <% logger.debug "Testexecstep.edit" %>
+    <h1>Тест "<%= @testexec.onetest.title %>" </h1>
+    <% if current_user.is_teacher %>
+      <% @sur = User.find(@testexec.user_id) %>
+      <h1>Ученик: <%= @sur.surname %> </h1>
+    <% end %>
+    <table>
+      <tr>
+        <th size=200 ></th>
+        <th size=20 ></th>
+      </tr>
+      <tbody>
+        <%= form_for(@testexec) do |f| %>
+          <tr><td><%= f.label :responseall, "Всего заданий:" %></td><td><%= f.label :responseall, String(@testexec.responseall) %></td></tr>
+          <tr><td><%= f.label :responseok, "Выполнено правильно:" %></td><td><%= f.label :responseok, String(@testexec.responseok) %></td></tr>
+          <tr><td><%= f.label :responseerror, "Ошибок:" %></td><td><%= f.label :responseerror, String(@testexec.responseerror) %></td></tr>
+          <tr><td><%= f.label :responseskip, "Пропущено:" %></td><td><%= f.label :responseskip, String(@testexec.responseskip) %></td></tr>
+          <tr><td><%= f.label :notexec, "Не выполнено:" %></td><td><%= f.label :notexec, String(@testexec.notexec) %></td></tr>
+          <tr><td><%= f.label :ratio, "Набрано баллов:" %></td><td><%= f.label :ratio, String(@testexec.ratio) %></td></tr> 
+          <% if current_user.is_student %>
+            <tr><td><%= f.label :assessment, "Ваша оценка:" %></td><td><%= f.label :ratio, String(@testexec.assessment) %></td></tr>
+          <% end %>
+          <% if current_user.is_teacher %>
+            <tr><td><%= f.label :assessment, "Оценка студента:" %></td><td><%= f.label :ratio, String(@testexec.assessment) %></td></tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <%= render partial: 'testexecsteps_index', locals: {testexecsteps: @testexec.testexecsteps.sort_by { |i| i.ordernum } } %>
+    <% if current_user.is_teacher %>
+      <%= link_to "Вернуться", root_path, {:class => "bot1"} %>
+    <% end %>
+    <% if current_user.is_student %>
+      <%= link_to "Дальше", profile_path, { :class => "bot1"} %>
+    <% end %>
+  </div>
+  
+</body>

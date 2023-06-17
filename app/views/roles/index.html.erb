@@ -1,0 +1,129 @@
+<!--
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="stylesheets/main.scss">
+  <link rel="stylesheet" href="stylesheets/roles.scss">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Шапка для сайта</title>
+</head>
+
+
+<div id="block-body">
+
+  <header>
+
+    <div class="logo">
+      <a href="#">
+        <span class="use">WEB</span>-<span class="web">QUEST</span>
+      </a>
+
+    </div>
+
+    <div class="top-menu">
+      <ul>
+        <li><%= link_to 'Главная', root_path, class: "clickMenu"%></li>
+        <li><%= link_to 'Роли', webtests_path %></li>
+        <li><%= link_to 'Задания', webtests_path %></li>
+        <li><a href="#">Вход</a></li>
+        <li><a href="#">Регистрация</a></li>
+        <li><a href="#">Личный кабинет</a></li>
+      </ul>
+    </div>
+
+
+
+  </header>
+<body>
+-->
+  <div id="block-content">
+
+  <% @roles.each do |role| %>
+
+      <h1> <%= role.name %></h1>
+      <p><%= role.description %></p>
+
+  <% end %>
+
+  </div>
+<!--
+</body>
+</div>
+<div id="block-footer">
+  <footer>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <h3>Useful Links</h3>
+          <ul class="list-unstyled three-column">
+            <li><%= link_to 'Home', root_path%></li>
+            <li><a href="mmcs.sfedu.ru">Сайт университета</a></li>
+            <li><a href="grade.sfedu.ru">БРС</a></li>
+            <li><a href="https://stackoverflow.com">Code</a></li>
+            <li><a href="edu.mmcs.sfedu.ru">Moodle</a></li>
+            <li><a href="heroku.com">Host</a></li>
+            <li><a href="https://vk.com/id138270450">Contact</a></li>
+
+          </ul>
+          <ul class="list-unstyled socila-list">
+            <li><img src="https://pbs.twimg.com/profile_images/914690158427082752/iUku61cz_normal.jpg" alt="" /></li>
+            <li><img src="https://pbs.twimg.com/profile_images/901152867947622400/zG2ccT1W_normal.jpg" alt="" /></li>
+            <li><img src="https://pbs.twimg.com/profile_images/934060768525475840/fJ6mdB7w_normal.jpg" alt="" /></li>
+            <li><img src="https://pbs.twimg.com/profile_images/3616727481/e13751ae93873ee8229bd40405c08565_normal.jpeg" alt="" /></li>
+            <li><img src="https://i04.fotocdn.net/s116/128b31a073fce2ed/gallery_t/2635785830.jpg" alt="" /></li>
+            <li><img src="https://pbs.twimg.com/profile_images/1150894182376099843/_5LjN_eL_normal.jpg" alt="" /></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h3>Main Themes</h3>
+          <div class="media">
+            <a href="#" class="pull-left">
+              <img src="https://www.gravatar.com/avatar/efc35e04de6c4b3e382ad5cb51d066ca?s=64&d=identicon&r=PG" alt="" class="media-object" />
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Programming</h4>
+              <p>Using wonderful RoR</p>
+            </div>
+          </div>
+
+          <div class="media">
+            <a href="#" class="pull-left">
+              <img src="https://octobercms.com/storage/app/uploads/public/5ae/107/1d8/thumb_9753_64_64_0_0_auto.png" alt="" class="media-object" />
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Coding</h4>
+              <p>I think CSS is fascinating.</p>
+            </div>
+          </div>
+
+          <div class="media">
+            <a href="#" class="pull-left">
+              <img src="https://konyaozelders.com/assets/img/icon/23740konya%20matematik%20ozel%20ders.png" alt="" class="media-object" />
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Math</h4>
+              <p>We all do love math!</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+          <h3>Our Faculty</h3>
+          <img class="img-thumbnail" src="https://mineralnievodi.bezformata.com/content/image165863911.jpg" alt="" />
+          <img class="img-thumbnail" src="https://sfedu.ru/www/sfedu$files.bfile_download?p_file=11545.JPG&p_dir=FOTO_GALLERY_DIR&p_mime_type=image/jpeg&p_name=IMG_1613.JPG" alt="" />
+          <img class="img-thumbnail" src="https://sfedu.ru/www/sfedu$files.bfile_download?p_file=2201.JPG&p_dir=FOTO_GALLERY_DIR&p_mime_type=image/jpeg&p_name=P00_2834.JPG" alt="" />
+          <img class="img-thumbnail" src="https://learningapps.org/appicons/1/10624155.png?cache=1586501547&amp;large" alt="" />
+        </div>
+
+      </div>
+    </div>
+    <div class="copyright text-center">
+      Copyright © 2021 <span>For SFU!</span>
+    </div>
+  </footer>
+</div>
+</html>
+-->

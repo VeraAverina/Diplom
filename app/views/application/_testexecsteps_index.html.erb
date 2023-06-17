@@ -1,0 +1,33 @@
+<table class = "table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Вопрос</th>
+      <th>Ответ</th>
+      <th>Баллов</th>
+      <% if current_user.is_teacher %>
+        <th>Правильный ответ</th>
+      <% end %>
+      <th>Начало</th>
+      <th>Окончание</th>
+      <th>Сек</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if testexecsteps %> 
+      <% testexecsteps.each do |r| %>
+      <tr>
+        <th><%= r.ordernum %></th>
+        <td><%= r.itemtest.questions.first.body %></td>
+        <td><%= r.response_to_str(r.response) %></td>
+        <td><%= r.ratio %></td>
+        <td><%= r.response_to_str(r.itemtest.responseright_to_str) %></td>
+        <td><%= r.datestart ? r.datestart.strftime('%d.%m.%Y %H:%M:%S') : '' %></td>
+        <td><%= r.datefinish ? r.datefinish.strftime('%d.%m.%Y %H:%M:%S') : '' %></td>
+        <th><%= r.duration %></th>
+      </tr>
+      <% end %> 
+    <% end %>
+  </tbody>
+</table>

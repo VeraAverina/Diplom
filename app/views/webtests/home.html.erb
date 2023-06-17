@@ -1,0 +1,19 @@
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @webtests.each do |webtest| %>
+    <tr>
+      <td><%= webtest.title %></td>
+      <td><%= link_to "Show", webtest %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>

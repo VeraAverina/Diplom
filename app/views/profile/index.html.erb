@@ -1,0 +1,21 @@
+<div id="block-content">
+  <h2><%= current_user.surname %>
+  <% if current_user.is_student %>
+    , Ваш класс <%= current_user.forme %></h2>
+
+    <div>
+      <% if current_user.resultfiles.size > 0 %>
+        <p>Результаты <b>Webquest</b> выполненые вами</p>
+        <%= render partial: 'webquest_result', locals: {resultfiles: current_user.resultfiles, for_teacher: false} %>
+      <% end %>
+    </div>
+    <div>
+      <% if current_user.testexecs.size > 0 %>
+        <p>Результаты <b>ТЕСТОВ</b> выполненые вами</p>
+        <%= render partial: 'test_result', locals: {testexecs: current_user.testexecs, for_teacher: false} %>
+      <% end %>
+    </div>
+  <% elsif current_user.is_teacher %>
+    , преподаватель </h2>
+  <% end %>  
+</div>

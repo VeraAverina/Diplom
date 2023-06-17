@@ -1,0 +1,34 @@
+<table class = "table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Тестируемый</th>
+      <th>Название теста</th>
+      <th>Создан</th>
+      <th>Начало</th>
+      <th>Окончание</th>
+      <th>Всего вопросов</th>
+      <th>Ошибок</th>
+      <th>Баллов</th>
+      <th>Оценка</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if testexecs %> 
+      <% testexecs.each do |res| %>
+      <tr>
+        <td><%= res.user.surname %></td>
+        <td><%= res.onetest.title %></td>
+        <td><%= res.created_at.strftime('%d.%m.%Y %H:%M') %></td>
+        <td><%= res.datestart ? res.datestart.strftime('%d.%m.%Y %H:%M') : '' %></td>
+        <td><%= res.datefinish ? res.datefinish.strftime('%d.%m.%Y %H:%M') : '' %></td>
+        <th><%= res.responseall %></th>
+        <th><%= res.responseerror %></th>
+        <td><%= res.ratio %></td>
+        <td><%= res.assessment %></td>
+        <td><%= link_to "View", testexec_path(res) %></td>
+      </tr>
+      <% end %> 
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+
+<h2><%= current_user.surname %></h2>
+<table class = "table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Сылка на файл</th>
+      <th>Оценка</th>
+      <th>Коментарии</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= @thisresultfiles=Resultfile.find(current_user.id) %>
+      <% @thisresultfiles.each do |res| %>
+
+        <tr>
+          <td><%= res.namefile %></td>
+          <td><%= link_to "Download File", res.namefile_url %></td>
+          <td><%= res.mark %></td>
+          <td><%= res.comment %></td>
+        </tr>
+
+      <% end %>
+  </tbody>
+</table>

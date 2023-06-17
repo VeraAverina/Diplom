@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  discipline: one
+  ratio5: 1
+  ratio4: 1
+  ratio3: 1
+  ratio2: 1
+
+two:
+  title: MyString
+  discipline: two
+  ratio5: 1
+  ratio4: 1
+  ratio3: 1
+  ratio2: 1

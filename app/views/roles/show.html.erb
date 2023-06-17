@@ -1,0 +1,10 @@
+<div id="block-content">
+
+    <% @role.webtasks.each do |w| %>
+      <h2><%= w.taskname %></h2>
+      <p><%= w.tasktask %></p>
+    <% end %>
+    <% if current_user.teacher=="Student" %>
+    <%= link_to "Закончить", new_resultfile_path, class: "bot1" %>
+    <% end %>
+    </div>

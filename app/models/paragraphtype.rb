@@ -1,0 +1,2 @@
+class Paragraphtype < ApplicationRecord
+end

@@ -1,0 +1,8 @@
+  <body>
+    <div id="block-content">
+      <% @webtests.each do |webtest| %>
+        <h1> <%= webtest.title %></h1>
+        <%= link_to "Show", webtest_path(webtest), class: "bot1"%>
+      <% end %>
+    </div>
+  </body>

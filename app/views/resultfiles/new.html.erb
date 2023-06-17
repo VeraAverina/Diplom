@@ -1,0 +1,15 @@
+
+<div id="block-content">
+  <div class = "well">
+  
+    <%= form_for @resultfile, html: { multipart: true } do |f| %>
+      <%= f.label :name, "Название файла " %>
+      <%= f.text_field :name %><br />
+      <%= f.label :role_id, "Роль (1 - математик, 2 - программист) " %>
+      <%= f.text_field :role_id %><br />
+      <%= f.file_field :namefile %><br />
+      <%= f.submit "Save", { :class => 'bot1'} %>
+    <% end %>
+  </div>
+  </div>
+  

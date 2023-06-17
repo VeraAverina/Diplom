@@ -1,0 +1,8 @@
+<body>
+  <div id="block-content">
+    <%= form_for(@testexec) do |f| %>
+        <h1> <%= @testexec.datestart ? "Продолжить" : "Начать"+ " " + @testexec.onetest.title %></h1>
+        <%= f.submit "Поехали", {:class => "bot1"} %>
+    <% end %>
+  </div>
+</body>
